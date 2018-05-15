@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ValidationDesign
+namespace ValidationDesign.Entities
 {
     public abstract class BulkImportEntity
     {

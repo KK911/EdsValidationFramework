@@ -1,14 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using ValidationDesign.Entities;
-using ValidationDesign.Validation.Validators;
+using System.Xml;
+using Newtonsoft.Json;
+using RulesEngine.Core;
+using RulesEngine.Models;
+using RulesEngine.Rules;
+using Formatting = Newtonsoft.Json.Formatting;
 
-namespace ValidationDesign
+namespace RulesEngine
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             ImportEmployees();
         }
@@ -20,42 +23,47 @@ namespace ValidationDesign
                 new Employee // Valid entry
                 {
                     EmployeeNumber = "1001",
-                    ExternalId = "1001",
                     Dob = DateTime.Today.AddYears(-35),
                     EmployeeRating = "Meets Expectation",
-                    Salary = 150000
+                    Salary = 150000,
+                    NumYearsInCurrentRole = 2
                 },
                 new Employee
                 {
-                    ExternalId = "1002", // EmployeeNumber, a required field is not provided here. 
                     Dob = DateTime.Today.AddYears(-40),
                     EmployeeRating = "Outstanding",
-                    Salary = 150000
+                    Salary = 150000,
+                    NumYearsInCurrentRole = 2
                 },
                 new Employee
                 {
                     EmployeeNumber = "1003",
-                    ExternalId = "1003",
                     Dob = DateTime.Today.AddYears(-45),
                     EmployeeRating = "Exceeds Expectation",
-                    Salary = 1500000 // Expect this to be caught by range validator
+                    Salary = 150000, // Expect this to be caught by range validator
+                    NumYearsInCurrentRole = 3
                 },
                 new Employee
                 {
                     EmployeeNumber = "1004",
-                    ExternalId = "1004",
-                    Dob = DateTime.Today.AddYears(-65),
+                    Dob = DateTime.Today.AddYears(-33),
                     EmployeeRating = "Overachiever", // Expect this to be caught by custom validator
-                    Salary = 10000000
+                    Salary = 100000,
+                    NumYearsInCurrentRole = 4
                 }
             };
 
-            var validator = new EmployeeValidator();
             foreach (var employee in employees)
             {
-                var validationSummary = validator.Validate(employee);
+                var ruleEngine = new RuleEngine<Employee>(employee);
+                var result = ruleEngine
+                    .ApplyRules(new EmployeeNumberRequiredFieldRule(), 
+                        new EmployeeSalaryRangeRule(),
+                        new EmployeeConsistentPerformerRule(),
+                        new EmployeeBonusEligibilityRule())
+                    .Execute();
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
                 Console.WriteLine();
-                Console.WriteLine($"Validation Errors: {JsonConvert.SerializeObject(validationSummary, Formatting.Indented)}");
             }
 
             Console.ReadLine();

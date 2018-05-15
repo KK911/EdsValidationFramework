@@ -1,4 +1,6 @@
-﻿namespace ValidationDesign.Validation.ValidationRules
+﻿using ValidationDesign.Entities;
+
+namespace ValidationDesign.Validation.ValidationRules
 {
     public abstract class RequiredFieldValidationRule<T> : IValidationRule<T>
         where T : BulkImportEntity

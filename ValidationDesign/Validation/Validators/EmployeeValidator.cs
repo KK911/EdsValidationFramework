@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ValidationDesign.Entities;
 using ValidationDesign.Extensions;
 using ValidationDesign.Validation.ValidationRules;
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationDesign", "ValidationDesign\ValidationDesign.csproj", "{D874FE09-E284-41E4-A6A0-6024A3480BF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesEngine", "RulesEngine\RulesEngine.csproj", "{C6AF9953-6551-466E-B4A1-A33A6868B635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D874FE09-E284-41E4-A6A0-6024A3480BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D874FE09-E284-41E4-A6A0-6024A3480BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D874FE09-E284-41E4-A6A0-6024A3480BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6AF9953-6551-466E-B4A1-A33A6868B635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AF9953-6551-466E-B4A1-A33A6868B635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AF9953-6551-466E-B4A1-A33A6868B635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AF9953-6551-466E-B4A1-A33A6868B635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

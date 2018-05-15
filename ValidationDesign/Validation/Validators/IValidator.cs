@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ValidationDesign.Entities;
 using ValidationDesign.Validation.ValidationRules;
 
 namespace ValidationDesign.Validation.Validators

@@ -1,4 +1,5 @@
 ﻿using System;
+using ValidationDesign.Entities;
 
 namespace ValidationDesign.Validation.ValidationRules
 {

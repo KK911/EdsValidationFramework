@@ -1,4 +1,6 @@
-﻿namespace ValidationDesign.Validation.ValidationRules
+﻿using ValidationDesign.Entities;
+
+namespace ValidationDesign.Validation.ValidationRules
 {
     public class EmployeeNumberRequiredValidationRule : RequiredFieldValidationRule<Employee>
     {

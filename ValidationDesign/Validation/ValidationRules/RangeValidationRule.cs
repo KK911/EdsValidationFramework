@@ -1,4 +1,6 @@
-﻿namespace ValidationDesign.Validation.ValidationRules
+﻿using ValidationDesign.Entities;
+
+namespace ValidationDesign.Validation.ValidationRules
 {
     public abstract class RangeValidationRule<TEntity, TField> : IValidationRule<TEntity>
         where TEntity : BulkImportEntity
